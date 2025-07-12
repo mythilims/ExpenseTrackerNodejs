@@ -28,11 +28,11 @@
         return;
       }
           console.log('1');
-
+console.log("ENV:", process.env.NODE_ENV); // should print "production"
+console.log("JWT_SECRET_KEY:", process.env.JWT_SECRET_KEY); // must NOT be undefined
       let token = jswebtoken.sign({ id: existsUser._id }, process.env.JWT_SECRET_KEY, {
         expiresIn: "1d",
       });
-              console.log(process.env,'2');
 
       res.cookie("token", token, {
         httpOnly: true,
