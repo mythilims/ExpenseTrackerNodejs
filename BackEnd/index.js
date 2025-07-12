@@ -62,5 +62,7 @@ app.set("views", "./Views");
 app.set("view engine", "pug");
 
 app.listen(PORT, () => {
+  console.log(process.env.NODE_ENV);
+  
   console.log(`am a server PORT:${PORT}`);
 });
