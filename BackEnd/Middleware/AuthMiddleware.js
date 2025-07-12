@@ -6,6 +6,7 @@ let my_secret_Key = process.env.JWT_SECRET_KEY;
 
 const authMiddleware = (req, res, next) => {
   const token = req.cookies.token; // ✅ Use req.cookies, not res.cookie
+  console.log( req.cookies.token)
   if (!token) {
     return res.status(401).json({ message: "Token not found" });
   }
