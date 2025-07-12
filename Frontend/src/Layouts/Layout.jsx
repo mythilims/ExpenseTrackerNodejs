@@ -12,7 +12,7 @@ import { LogIn } from "lucide-react";
 import Login from "../pages/Login";
 import { useState } from "react";
 
-function LayOut() {
+function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -43,4 +43,4 @@ function LayOut() {
   );
 }
 
-export default LayOut
+export default Layout
