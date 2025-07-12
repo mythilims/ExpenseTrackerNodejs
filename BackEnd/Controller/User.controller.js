@@ -32,7 +32,7 @@
       let token = jswebtoken.sign({ id: existsUser._id }, process.env.JWT_SECRET_KEY, {
         expiresIn: "1d",
       });
-              console.log('2');
+              console.log(process.env,'2');
 
       res.cookie("token", token, {
         httpOnly: true,
