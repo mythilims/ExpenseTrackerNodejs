@@ -16,7 +16,9 @@ function Expense() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleAdd = async () => {
-    if (!title || !amount || !date || !type) return;
+    if (!title || !amount || !date || !type){ 
+                  toast.error ("fill the all field");
+      return};
     const newExpense = {
       name: title,
       notes: title,
@@ -191,7 +193,7 @@ function Expense() {
                 </div>
               </div>
 
-              <div className="flex justify-end gap-2 pt-3 border-t border-gray-100">
+              {/* <div className="flex justify-end gap-2 pt-3 border-t border-gray-100">
                 <button className="text-blue-600 hover:text-blue-800 hover:bg-blue-50 p-2 rounded-lg transition-colors flex items-center gap-1 text-sm">
                   <SquarePen size={14} />
                   Edit
@@ -200,7 +202,7 @@ function Expense() {
                   <Trash size={14} />
                   Delete
                 </button>
-              </div>
+              </div> */}
             </div>
           ))
         )}

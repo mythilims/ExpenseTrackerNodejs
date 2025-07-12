@@ -13,8 +13,10 @@ const logniController = async (req, res) => {
     const { email, password } = req.body;
 
     let existsUser = await User.findOne({ email });
-
+    console.log(existsUser,'existsUser');
+    
     const passWrdVerify = await existsUser.matchPassword(password);
+    console.log(passWrdVerify,'passWrdVerify');
 
     if (!passWrdVerify) {
       res.status(401).json({
@@ -34,7 +36,8 @@ const logniController = async (req, res) => {
       sameSite: "Strict",
       maxAge: 1000 * 60 * 60 * 24,
     });
-
+       console.log(process.env.NODE_ENV === "production");
+       
     res.json({
       message: "login sucessful",
       passWrdVerify,
