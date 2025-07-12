@@ -27,17 +27,24 @@ const logniController = async (req, res) => {
       });
       return;
     }
+        console.log('1');
+
     let token = jswebtoken.sign({ id: existsUser }, my_secret_Key, {
       expiresIn: "1d",
     });
+            console.log('2');
+
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "Strict",
       maxAge: 1000 * 60 * 60 * 24,
     });
+                console.log('2',process);
+
        console.log(process.env.NODE_ENV === "production");
-       
+                       console.log('3',process.env);
+
     res.json({
       message: "login sucessful",
       passWrdVerify,
