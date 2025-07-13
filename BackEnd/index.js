@@ -12,7 +12,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? "https://expensetrackernodejsui.onrender.com"
+        ? "https://expensetrackerui.netlify.app"
         : "http://localhost:5173", // ✅ Must match your frontend URL
     credentials: true, // ✅ Needed to send cookies
   })
