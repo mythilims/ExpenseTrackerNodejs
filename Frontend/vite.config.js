@@ -3,8 +3,19 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
+import { resolve } from 'path'
+import { copyFileSync } from 'fs'
+
+// ✅ Custom plugin to copy _redirects into dist
+const copyRedirectsPlugin = () => ({
+  name: 'copy-redirects',
+  closeBundle() {
+    copyFileSync(resolve(__dirname, 'public/_redirects'), resolve(__dirname, 'dist/_redirects'))
+  }
+})
+
 export default defineConfig({
-  plugins: [react(),tailwindcss()],
+  plugins: [react(),tailwindcss(),copyRedirectsPlugin ()],
     base:'/',
   build: {
        outDir: 'dist',
