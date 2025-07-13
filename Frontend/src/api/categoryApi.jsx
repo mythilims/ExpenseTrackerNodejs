@@ -57,4 +57,5 @@ const createCategory = async (reqData) => {
   }
 };
 
+
 export { getCategory, createCategory ,getAllCategory};
