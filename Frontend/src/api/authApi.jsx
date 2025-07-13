@@ -1,21 +1,28 @@
-import { API_URL } from "../utility/common";
+// common.js
+export const API_URL = import.meta.env.VITE_API_URL;
 
-export const athuApi  =async(url,reqBody) =>{   
-    try{
-       let data  =await fetch(API_URL+url,{
-        method:'POST',
-       credentials: 'include', // ✅ correct way to send cookies
+// api.js
+export const athuApi = async (url, reqBody) => {
+  try {
+    const response = await fetch(API_URL + url, {
+      method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
-      }, 
-        body:JSON.stringify(reqBody)
-       });
-       let result =await data.json();
-        if(!data.ok){
-      return  new Error(e);
+      },
+      body: JSON.stringify(reqBody)
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.message || "API Error");
     }
-       return result;
-    }catch(e){
-      return e;
-    }
-}
+
+    return result;
+
+  } catch (e) {
+    console.error("API Error:", e);
+    return e;
+  }
+};
