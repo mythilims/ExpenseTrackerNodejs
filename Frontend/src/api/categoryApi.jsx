@@ -7,6 +7,7 @@ const getCategory = async () => {
       headers: {
         "content-type": "application/json",
       },
+      credentials:"include"
     });
     const res = await req.json();
  if(!req.ok){
@@ -21,6 +22,7 @@ const getAllCategory = async () => {
   try {
     const req = await fetch(`${API_URL}/category/all`, {
       method: "get",
+      credentials:"include",
       headers: {
         "content-type": "application/json",
       },
@@ -39,6 +41,7 @@ const createCategory = async (reqData) => {
   try {
     const req = await fetch(`${API_URL}/category`, {
       method: "POST",
+      credentials:"include",
       headers: {
         "content-type": "application/json",
       },
