@@ -21,6 +21,11 @@ const copyRedirectsPlugin = () => ({
 export default defineConfig({
   plugins: [react(), tailwindcss(), copyRedirectsPlugin()],
   base: '/',
+  server: {
+    proxy: {
+      '/api': 'https://expensetrackernodejs.onrender.com'
+    }
+  },
   build: {
     outDir: 'dist',
     rollupOptions: {
