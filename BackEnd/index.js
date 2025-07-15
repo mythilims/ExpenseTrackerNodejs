@@ -25,6 +25,8 @@ app.use(
       }
     },
     credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+
   })
 );
 app.use(express.static("views"));
