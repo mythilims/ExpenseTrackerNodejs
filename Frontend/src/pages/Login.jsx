@@ -39,7 +39,7 @@ function AuthPage({ setAuth, setUserId }) {
          
         }, 0);
          }else{
-                  toast.success("Login successfuly");
+       toast.error("Login fail");
 
          }
       } else {
